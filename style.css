@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Super smooth, soft gradient blending deep black into ocean blue */
+    background: linear-gradient(135deg, #000000 0%, #041224 40%, #003366 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e0e0e0;
+}
+
+/* Glassmorphism Container */
+.glass-container {
+    width: 800px;
+    max-width: 90%;
+    height: 600px;
+    /* Frosted glass with a very subtle dark blue tint */
+    background: rgba(10, 25, 45, 0.35);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 102, 255, 0.1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 150, 255, 0.25); /* Subtle blue rim light */
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header & Navigation */
+header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+
+header h2 {
+    /* Gradient Text for the Title */
+    background: linear-gradient(90deg, #00bfff, #0055ff);
+    -webkit-background-clip: text;
+    background-clip: text; /* <-- Just add this line! */
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 150, 255, 0.2);
+    margin-bottom: 15px;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-tabs button {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #888;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs button:hover, .nav-tabs button.active {
+    background: rgba(0, 150, 255, 0.15);
+    border-color: rgba(0, 150, 255, 0.5);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.2);
+}
+
+/* Content Area */
+.content {
+    padding: 30px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* Custom Scrollbar */
+.content::-webkit-scrollbar {
+    width: 6px;
+}
+.content::-webkit-scrollbar-thumb {
+    background: rgba(0, 150, 255, 0.3);
+    border-radius: 10px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    color: #e0e0e0;
+    border-left: 3px solid #00bfff;
+    padding-left: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: #00bfff;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.2);
+}
+
+/* Calendar icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) hue-rotate(180deg) brightness(1.5);
+    cursor: pointer;
+}
+
+option {
+    background: #050505;
+    color: #ffffff;
+}
+
+/* Buttons */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    /* Striking Blue Gradient */
+    background: linear-gradient(135deg, #0055ff 0%, #00aaff 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #0044cc 0%, #0088cc 100%);
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Delete Button */
+#deleteForm .btn-submit {
+    background: linear-gradient(135deg, #aa0000 0%, #ff3333 100%);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+#deleteForm .btn-submit:hover {
+    background: linear-gradient(135deg, #880000 0%, #cc0000 100%);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+th {
+    background: rgba(255, 255, 255, 0.03);
+    color: #00bfff;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+tr:hover td {
+    background: rgba(0, 150, 255, 0.05);
+}

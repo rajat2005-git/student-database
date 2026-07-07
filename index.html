@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="glass-container">
+        <header>
+            <h2>Student Info Portal</h2>
+            <div class="nav-tabs">
+                <button class="active" onclick="showTab('add')">Add Student</button>
+                <button onclick="showTab('view')">View All</button>
+                <button onclick="showTab('update')">Update</button>
+                <button onclick="showTab('delete')">Delete</button>
+            </div>
+        </header>
+
+        <div class="content">
+            <div id="add" class="tab-content active">
+                <h3>Enter Student Details</h3>
+                <br>
+                <form id="addForm">
+                    <div class="form-group">
+                        <label>Roll Number</label>
+                        <input type="number" id="roll" required>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>First Name</label>
+                            <input type="text" id="fname" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Last Name</label>
+                            <input type="text" id="lname" required>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>CGPA</label>
+                            <input type="number" step="0.01" id="cgpa" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Admission Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Add Student</button>
+                </form>
+            </div>
+
+            <div id="view" class="tab-content">
+                <h3>All Student Records</h3>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>CGPA</th>
+                            <th>Admission Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <div id="update" class="tab-content">
+                <h3>Update Student Record</h3>
+                <br>
+                <form id="updateForm">
+                    <div class="form-group">
+                        <label>Roll Number of Student to Update</label>
+                        <input type="number" id="updateRoll" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Field to Update</label>
+                        <select id="updateField">
+                            <option value="first_name">First Name</option>
+                            <option value="last_name">Last Name</option>
+                            <option value="CGPA">CGPA</option>
+                            <option value="admission_date">Admission Date</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>New Value</label>
+                        <input type="text" id="newValue" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Update Record</button>
+                </form>
+            </div>
+
+            <div id="delete" class="tab-content">
+                <h3>Delete Student Record</h3>
+                <br>
+                <form id="deleteForm">
+                    <div class="form-group">
+                        <label>Roll Number of Student to Delete</label>
+                        <input type="number" id="deleteRoll" required>
+                    </div>
+                    <button type="submit" class="btn-submit" style="background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);">
+                        Delete Record
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
